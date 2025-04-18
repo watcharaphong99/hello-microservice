@@ -17,7 +17,7 @@ func (s *server) InventoryService() {
 	_ = grpcHandler
 	_ = queueHandler
 
-	auth := s.app.Group("/inventory_v1")
+	inventory := s.app.Group("/inventory_v1")
 
-	_ = auth
+	inventory.GET("", s.healthCheckService)
 }
